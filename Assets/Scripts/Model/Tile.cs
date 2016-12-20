@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class Tile : MonoBehaviour {
   }
 
   void Match () {
-    transform.localPosition = new Vector3(position.x, height * STEP_HEIGHT / 2f, position.y);
+    transform.localPosition = new Vector3(position.x, height * STEP_HEIGHT, position.y);
     transform.localScale = new Vector3(1, height * STEP_HEIGHT, 1);
   }
 
@@ -37,4 +38,8 @@ public class Tile : MonoBehaviour {
   public void Load ( Vector3 vector ) {
     Load(new Point((int) vector.x, (int) vector.z), (int) vector.y);
   }
+
+	public bool canBeJumped (float init_height, int jump) {
+		return (STEP_HEIGHT * jump >= Math.Abs(this.height - init_height));
+	}
 }

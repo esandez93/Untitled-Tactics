@@ -25,14 +25,14 @@ public class BoardCreator : MonoBehaviour {
   }
 
   [SerializeField]
-  int width = 10;
+  int width = 20;
   [SerializeField]
-  int depth = 10;
+  int depth = 20;
   [SerializeField]
   int height = 8;
 
-  [SerializeField]
-  Point position = new Point (0, 0);
+	[SerializeField]
+	Point position = new Point (0, 0);
 
   [SerializeField]
   LevelData levelData;
@@ -44,6 +44,7 @@ public class BoardCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	Debug.Log(position);
 		
 	}
 
