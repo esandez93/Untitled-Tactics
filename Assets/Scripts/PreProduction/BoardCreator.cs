@@ -125,6 +125,36 @@ public class BoardCreator : MonoBehaviour {
 		ShrinkSingle(position);
 	}
 
+	public void GenerateRandom () {
+		int grow_times = UnityEngine.Random.Range(10, 25);
+		int shrink_times = UnityEngine.Random.Range(5, 25);
+		int grow_count = 0;
+		int shrink_count = 0;
+		
+		for (int i = 0; i < (grow_times + shrink_times); ++i) {
+			int random = UnityEngine.Random.Range(0, 1);
+
+			if (grow_times > grow_count && shrink_times > shrink_count) {
+				if (random == 0) {
+					GrowArea();
+					++grow_count;
+				}
+				else {
+					ShrinkArea();
+					++shrink_count;
+				}
+			}
+			else if (grow_times > grow_count && shrink_times <= shrink_count) {
+				GrowArea();
+				++grow_count;
+			}
+			else if (grow_times <= grow_count && shrink_times > shrink_count) {
+				ShrinkArea();
+				++shrink_count;
+			}
+		}
+	}
+
 	Tile Create () {
 		GameObject instance = Instantiate(tileViewPrefab) as GameObject;
 		instance.transform.parent = transform;

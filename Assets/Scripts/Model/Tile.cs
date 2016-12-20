@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour {
   }
 
   void Match () {
-    transform.localPosition = new Vector3(position.x, height * STEP_HEIGHT, position.y);
+    transform.localPosition = new Vector3(position.x, height * STEP_HEIGHT / 2f, position.y);
     transform.localScale = new Vector3(1, height * STEP_HEIGHT, 1);
   }
 

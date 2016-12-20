@@ -34,6 +34,8 @@ public class BoardCreatorInspector : Editor {
       current.GrowArea();
     if (GUILayout.Button("Shrink Area"))
       current.ShrinkArea();
+    if (GUILayout.Button("Generate random"))
+      current.GenerateRandom();
     if (GUILayout.Button("Save"))
       current.Save();
     if (GUILayout.Button("Load"))
