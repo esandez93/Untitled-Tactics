@@ -37,6 +37,9 @@ public class BoardCreator : MonoBehaviour {
   [SerializeField]
   LevelData levelData;
 
+	public string save_name = null;
+	public string load_name = null;
+
   // Use this for initialization
   void Start () {
 		
@@ -204,7 +207,7 @@ public class BoardCreator : MonoBehaviour {
 			board.tiles.Add( new Vector3(tile.position.x, tile.height, tile.position.y) );
 		}
      
-    string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, name);
+    string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, save_name);
     AssetDatabase.CreateAsset(board, fileName);
 	}
  
@@ -223,8 +226,13 @@ public class BoardCreator : MonoBehaviour {
 	public void Load () {
     Clear();
 
+		if (load_name != null) {
+			string filePath = "Assets/Resources/Levels/" + load_name + ".asset";
+			levelData = (LevelData)AssetDatabase.LoadAssetAtPath(filePath, typeof(LevelData));
+		}
+
     if (levelData == null)
-       return;
+     return;
  
     foreach (Vector3 vector in levelData.tiles) {
       Tile tile = Create();
