@@ -1,0 +1,3 @@
+Speaker;Position;Orientation;Sprite;Text
+Hero;LowerLeft;1;hero.gif;Well... Hello.
+Enemy;LowerRight;2;enemy.gif;I was waiting for you.\I will defeat you.
