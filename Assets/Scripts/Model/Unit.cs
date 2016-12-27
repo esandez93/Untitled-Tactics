@@ -3,7 +3,7 @@ using System.Collections;
  
 public class Unit : MonoBehaviour {
   public Tile tile { get; protected set; }
-  public Directions dir;
+  public Directions directions;
  
   public void Place (Tile target) {
     // Make sure old tile location is not still pointing to this unit
@@ -19,6 +19,6 @@ public class Unit : MonoBehaviour {
  
   public void Match () {
     transform.localPosition = tile.center;
-    transform.localEulerAngles = dir.ToEuler();
+    transform.localEulerAngles = directions.ToEuler();
   }
 }
